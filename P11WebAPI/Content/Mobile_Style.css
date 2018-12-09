@@ -1,0 +1,189 @@
+﻿body {
+}
+
+header {
+    background: #2c81da;
+}
+    header h2 {
+        color: #fff;
+        text-transform: uppercase;
+    }
+
+
+.CloseMenu {
+    position: absolute;
+    width: auto !important;
+    right: 0;
+    font-size: 30px !important;
+    padding: 5px 10px !important;
+    text-align: center !important;
+    line-height: 20px;
+    background-color: #e2131300 !important;
+    color: #444 !important;
+}
+    .CloseMenu:hover {
+        background-color: #e2131300 !important;
+        color: #f26522 !important;
+    }
+
+.Logo_Head {
+    width: 100%;
+    padding: 7px 5px 3px 5px;
+    background: #4399f3;
+}
+    .Logo_Head .logo {
+        width: 80px;
+        margin: 0px auto;
+        height: 60px;
+    }
+        .Logo_Head .logo img {
+            width: 100%;
+            height: 100%;
+        }
+    .Logo_Head h3 {
+        font-size: 18px;
+        color: #fff;
+        text-align: center;
+        margin: 7px 0px 3px 0px;
+    }
+
+.navbar-inverse {
+    background-color: #ffffff;
+    border-color: #080808;
+    border-radius: 0px;
+    border: 0px solid #ccc;
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: #10101000;
+    padding: 0px 5px;
+}
+.navbar-nav {
+    float: left;
+    margin: 0;
+    width: 100%;
+}
+    .navbar-nav > li {
+        float: none;
+    }
+        .navbar-nav > li > a {
+            position: relative;
+            display: block;
+            padding: 5px 10px;
+            line-height: 20px;
+        }
+.navbar-inverse .navbar-nav > li > a {
+    color: #424242;
+}
+    .navbar-inverse .navbar-nav > li > a:hover {
+        color: #f26522;
+    }
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    display: block;
+    height: 100%;
+    max-width: 100%;
+    line-height: 1;
+    max-height: 380px;
+}
+
+.carousel-control .fa {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 5;
+    display: inline-block;
+    font-size: 50px;
+    color: #fff;
+}
+.Logo_Header {
+    background-color: #2c81da;
+    padding: 10px 0px;
+}
+    .Logo_Header h1 {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 28px;
+        margin: 5px 0px;
+        color: #fff;
+    }
+    .Logo_Header .Logo_Cont {
+        width: 100%;
+    }
+        .Logo_Header .Logo_Cont .logo {
+            max-width: 170px;
+            margin: 0px auto;
+            width: 100%;
+        }
+            .Logo_Header .Logo_Cont .logo img {
+                width: 100%;
+            }
+        .Logo_Header .Logo_Cont h3 {
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 5px 0px;
+    }
+.Vs_Cont {
+    width: 100%;
+    text-align: center;
+}
+    .Vs_Cont h1 {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 50px;
+        font-weight: bold;
+        margin: 5px 0px;
+        color: #fff;
+    }
+    .Vs_Cont h3 {
+        font-size: 20px;
+        color: #fff;
+        text-align: center;
+        text-transform: uppercase;
+        margin: 10px 0px;
+    }
+.Back_Icon {
+    position: absolute;
+}
+    .Back_Icon .fa {
+        font-size: 30px;
+        color: #fff;
+    }
+.Team_Menu {
+    width: 100%;
+    max-width: 300px;
+    margin: 0px auto;
+}
+    .Team_Menu table {
+        width: 100%;
+    }
+        .Team_Menu table td a {
+            color: #fff;
+            font-size: 15px;
+            padding: 5px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+.Team_Table {
+    width: 100%;
+    max-width: 768px;
+    margin: 30px auto;
+}
+
+    .Team_Table .table {
+        width: 100%;
+    }
+
+        .Team_Table .table thead {
+            background: #2c81da;
+        }
+
+            .Team_Table .table thead th {
+                color: #fff;
+                text-align: center;
+                padding: 5px 0px;
+                font-size: 16px;
+            }
+        .Team_Table .table tbody td {
+            padding: 4px 10px;
+        }

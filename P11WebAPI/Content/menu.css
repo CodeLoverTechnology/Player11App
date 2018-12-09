@@ -1,0 +1,109 @@
+﻿
+header {
+    background-color: #ffffff;
+    z-index: 1003;
+    min-height: 95px;
+}
+.Top-header {
+    background-color: #4995d4;
+}
+.Top-header ul.mailCont {
+    list-style-type: none;
+    padding-left: 0;
+    float: left;
+    margin: 0;
+}
+    .Top-header ul.mailCont li {
+        float: left;
+        padding: 5px 15px;
+        color: #fff;
+    }
+.Top-header ul.social_Icon {
+    list-style-type: none;
+    padding-left: 0;
+    float: right;
+    margin: 0;
+}
+
+    .Top-header ul.social_Icon li {
+        float: left;
+        padding: 3px 5px;
+    }
+        .Top-header ul.social_Icon li a {
+            color: #fff;
+        }
+            .Top-header ul.social_Icon li a .fa {
+                border-radius: 50%;
+                padding: 5px;
+                width: 22px;
+                height: 22px;
+                font-size: 14px;
+                font-weight: normal;
+                line-height: 11px;
+            }
+
+.Midile_Header .input-group {
+    margin: 15px 0px;
+}
+
+.Midile_Header .search-panel .btn {
+    background: #4995d4;
+    border-radius: 0px;
+    border: 0;
+    color: #fff;
+    display: inline-block;
+    font-family: "open sans condensed", sans-serif;
+    line-height: 30px;
+    height: 35px;
+    padding: 0 10px;
+    text-decoration: none;
+    transition: .25s;
+}
+
+.Midile_Header .input-group-btn .btn {
+    background: #4995d4;
+    border-radius: 0px;
+    border: 0;
+    color: #fff;
+    display: inline-block;
+    font-family: "open sans condensed", sans-serif;
+    line-height: 30px;
+    height: 35px;
+    padding: 0 10px;
+    text-decoration: none;
+    transition: .25s;
+}
+
+.Midile_Header .form-control {
+    display: block;
+    width: 100%;
+    height: 35px;
+    max-width: none;
+    padding: 5px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #555555;
+    vertical-align: middle;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.Bottum_Header {
+    background: #4995d4;
+}
+.navbar {
+    position: relative;
+    z-index: 1000;
+    min-height: 40px;
+    margin-bottom: 0px;
+    border: 1px solid transparent;
+}
+.navbar-nav {
+    float: left;
+    margin: 0px 0px 0px 0px;
+}

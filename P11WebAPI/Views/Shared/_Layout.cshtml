@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Side_Menu.css" rel="stylesheet" />
+    <link href="~/Content/Mobile_Style.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container text-capitalize text-center" style="color:white;font-weight:bold;">
+            <div class="navbar-header">
+                <div class="container">
+                    <div class="row">
+                        <div>
+                            <a href="#" class="navbar-brand">
+                                <div class="col-lg-offset-1">
+                                    <img src="~/Images/Player11_Logo.jpeg" width="100" height="70" class="img-responsive" />
+                                </div>                               
+                            </a>
+                            <a href="#">
+                                <div class="col-lg-offset-1">
+                                    <p class="text-right" style="font-weight:bold;color:white;font-size:xx-large;">Player 11</p>
+                                </div>
+
+                            </a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="color:white;font-weight:bold;">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            
+                            @*@Html.ActionLink("Player 11", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Match Info", "Index", "M_MatchInfoMaters", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Match Topic", "Index", "M_MatchTopicMaster", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Player Info", "Index", "M_PlayerInfoMaster", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Player Type", "Index", "M_PlayerTypeMaster", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Team Info", "Index", "M_TeamInfoMaster", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Live Match Update", "Index", "T_LiveMatchUpdateInfo", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Running Match Update", "Index", "RunningMatchInfo", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Assign Player In Match", "Index", "Match_PlayerMappingTable", new { area = "" }, null)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+    </div>
+    
+    <footer class="panel-footer text-center" style="background-color:#f50e20;color:white;font-weight:bold;">
+        <p>&copy; @DateTime.Now.Year - Player 11 || Presented By CodeLover Technology</p>
+    </footer>
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

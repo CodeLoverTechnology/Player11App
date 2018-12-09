@@ -1,0 +1,23 @@
+﻿.TeamName{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size : 32px;
+    position:-20px;
+    margin-top:10px;
+    margin:0px;
+}
+
+.TeamMatch {
+    border: 1px solid red;
+    border-radius: 10px;
+    min-height: 100px;
+    max-height: 200px;
+    width: 100%;
+    background-image: url('../images/MatchBackground.jpg');    
+    padding:10px;
+    margin:5px;   
+}
+    .TeamMatch img {
+        max-height: 72px;
+        min-height: 60px;
+        width: 150%;
+    }

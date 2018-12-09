@@ -1,0 +1,67 @@
+﻿@model P11WebAPI.P11DbModel.T_LiveMatchUpdateInfo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>T_LiveMatchUpdateInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Team")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.M_MatchInfoMaters.Team1) - @Html.DisplayFor(model => model.M_MatchInfoMaters.Team2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.M_MatchInfoMaters.MatchLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.M_MatchInfoMaters.MatchLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.M_MatchTopicMaster.Topic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.M_MatchTopicMaster.Topic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Images)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Images)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MatchUpdateID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

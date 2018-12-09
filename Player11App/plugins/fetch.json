@@ -1,0 +1,35 @@
+{
+    "cordova-promise-polyfill": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-promise-polyfill"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-admob-sdk": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-admob-sdk"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-admob": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/appfeel/admob-google-cordova",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-connectivity-monitor": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-connectivity-monitor"
+        },
+        "is_top_level": false,
+        "variables": {}
+    }
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c1cdd2e003ad4ba3a0a2192247746ea5" Name="Diagram1">
+        <EntityTypeShape EntityType="P11DbModel.M_MatchInfoMaters" Width="1.5" PointX="5.625" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="P11DbModel.M_MatchTopicMaster" Width="1.5" PointX="11.375" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="P11DbModel.M_PlayerInfoMaster" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="P11DbModel.M_PlayerTypeMaster" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="P11DbModel.M_TeamInfoMaster" Width="1.5" PointX="3.125" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="P11DbModel.T_LiveMatchUpdateInfo" Width="1.5" PointX="8.625" PointY="5.625" IsExpanded="true" />
+        <AssociationConnector Association="P11DbModel.FK_M_MatchInfoMaters_M_TeamInfoMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="P11DbModel.FK_M_MatchInfoMaters_M_TeamInfoMaster1" ManuallyRouted="false" />
+        <AssociationConnector Association="P11DbModel.FK_T_LiveMatchUpdateInfo_M_MatchInfoMaters" ManuallyRouted="false" />
+        <AssociationConnector Association="P11DbModel.FK_T_LiveMatchUpdateInfo_M_MatchTopicMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="P11DbModel.FK_M_PlayerInfoMaster_M_PlayerTypeMaster" ManuallyRouted="false" />
+        <AssociationConnector Association="P11DbModel.FK_M_PlayerInfoMaster_M_TeamInfoMaster" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="P11DbModel.T_Match_PlayerMappingTable" Width="1.5" PointX="7.875" PointY="0.75" />
+        <AssociationConnector Association="P11DbModel.FK_T_Match_PlayerMappingTable_M_MatchInfoMaters" />
+        <AssociationConnector Association="P11DbModel.FK_T_Match_PlayerMappingTable_M_PlayerInfoMaster" />
+        <EntityTypeShape EntityType="P11DbModel.T_RunningMatchInfo" Width="1.5" PointX="7.875" PointY="10.125" />
+        <AssociationConnector Association="P11DbModel.FK_T_RunningMatchInfo_M_MatchInfoMaters" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

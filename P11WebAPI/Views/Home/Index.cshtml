@@ -1,0 +1,187 @@
+﻿@model IEnumerable<P11WebAPI.P11DbModel.M_MatchInfoMaters>
+
+
+<header>
+    <div class="row">
+        @*<div class="container">
+            <div class="col-md-4 col-sm-4 col-xs-4">
+                <div class="w3-teal">
+                    <button class="w3-button w3-teal w3-xlarge w3-left" onclick="openLeftMenu()">&#9776;</button>
+                </div>
+                <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="leftMenu">
+                    <button onclick="closeLeftMenu()" class="w3-bar-item w3-button w3-large CloseMenu">&times;</button>
+                    <div class="Logo_Head">
+                        <div class="logo">
+                            <img src="~/images/Player11_Logo.jpeg" />
+                        </div>
+                        <h3>Player 11</h3>
+                    </div>
+                    <div class="navbar navbar-inverse">
+                        <div class="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="#">Tips</a></li>
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">Send Leagal Code</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Share</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    function openLeftMenu() {
+                        document.getElementById("leftMenu").style.display = "block";
+                    }
+                    function closeLeftMenu() {
+                        document.getElementById("leftMenu").style.display = "none";
+                    }
+                </script>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-8">
+                <h2>Player 11</h2>
+            </div>
+        </div>*@
+    </div>
+</header>
+
+<div class="slider">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            @foreach (var item in Model)
+            {
+                <div class="item active">
+                    <img src="~/images/TeamMatch/MI-vs-RCB-Match-46-live-blog.jpg" alt="Los Angeles" style="width:100%;" />
+                    <div class="carousel-caption">
+                        <h3>@item.MatchDate @item.MatchLocation</h3>
+                        <p>@item.M_TeamInfoMaster.TeamName  Vs @item.M_TeamInfoMaster1.TeamName</p>
+                    </div>
+                </div>
+                break;
+            }
+                @foreach (var item in Model)
+                {
+                    <div class="item">
+                        <img src="~/images/TeamMatch/MI-vs-RR-M32-live-blog.jpg" alt="Chicago" style="width:100%;" />
+                        <div class="carousel-caption">
+                            <h3>@item.MatchDate @item.MatchLocation</h3>
+                            <p>@item.M_TeamInfoMaster.TeamName  Vs @item.M_TeamInfoMaster1.TeamName</p>
+                        </div>
+                    </div>
+                }
+                @*<div class="item">
+                <img src="~/images/TeamMatch/MI-vs-SRH-Match-23-LIVE-BLOG.jpg" alt="New York" style="width:100%;" />
+                <div class="carousel-caption">
+                    <h3>New York</h3>
+                    <p>We love the Big Apple!</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="~/images/TeamMatch/RCB-vs-MI1.jpg" alt="New York" style="width:100%;" />
+                <div class="carousel-caption">
+                    <h3>New York</h3>
+                    <p>We love the Big Apple!</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="~/images/TeamMatch/RR-vs-RCB-Match-22-LIVE-BLOG.jpg" alt="New York" style="width:100%;" />
+                <div class="carousel-caption">
+                    <h3>New York</h3>
+                    <p>We love the Big Apple!</p>
+                </div>
+            </div>*@
+
+            </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <i class="fa fa-arrow-circle-left"></i>
+            <!--<span class="glyphicon glyphicon-chevron-left"></span>-->
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <i class="fa fa-arrow-circle-right"></i>
+            <!--<span class="glyphicon glyphicon-chevron-right"></span>-->
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+<div class="Logo_Header">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <h1>
+                Upcoming Match
+            </h1>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="container TeamMatch">
+                <a href="~/Home/MatchInfo?MatchID=@item.MatchID">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="Logo_Cont">
+                            <div class="logo">
+                                <img src="~/images/TeamLogo/England.png" />
+                            </div>
+                            <h3>@item.M_TeamInfoMaster.TeamName</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="Vs_Cont">
+                            <h3>VS</h3>
+                            <h4>@item.MatchDate.ToString("dd-MMM-yyyy")</h4>
+                            <h4 class="text-center" >@item.MatchLocation</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="Logo_Cont">
+                            <div class="logo">
+                                <img src="~/images/TeamLogo/India.png" />
+                            </div>
+                            <h3>@item.M_TeamInfoMaster1.TeamName</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+            @*<div class="container TeamMatch">
+                <a href="~/Home/MatchInfo">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="Logo_Cont">
+                            <div class="logo">
+                                <img src="~/images/TeamLogo/Australia.png" />
+                            </div>
+                            <h3>Name</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="Vs_Cont">
+                            <h1>VS</h1>
+                            <h3>04/08/2018</h3>
+                            <h3>Location</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="Logo_Cont">
+                            <div class="logo">
+                                <img src="~/images/TeamLogo/CSK.jpg" india_logo.png:1 />
+                            </div>
+                            <h3>Name</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>*@
+        </div>
+</div>

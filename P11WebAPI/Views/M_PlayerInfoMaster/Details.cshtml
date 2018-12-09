@@ -1,0 +1,72 @@
+﻿@model P11WebAPI.P11DbModel.M_PlayerInfoMaster
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>M_PlayerInfoMaster</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.M_TeamInfoMaster.TeamName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.M_TeamInfoMaster.TeamName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.M_PlayerTypeMaster.PlayerType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.M_PlayerTypeMaster.PlayerType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlayerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayerSpecialization)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlayerSpecialization)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayerImage)
+        </dt>
+
+        <dd>
+            <img src="data:image/png;base64,@Model.PlayerImage" width="50" height="50" class="img-responsive" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PlayerID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

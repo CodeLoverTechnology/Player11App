@@ -1,0 +1,335 @@
+﻿@model IEnumerable <P11WebAPI.P11DbModel.T_Match_PlayerMappingTable>
+@{
+    ViewBag.Title = "MatchInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Match Info</h2>
+
+<header>
+    <div class="row">
+        <div class="container">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="Back_Icon">
+                    <a href="~/Home/Index">
+                        <i class="fa fa-arrow-circle-left"></i>
+                    </a>
+                </div>
+                @*.M_TeamInfoMaster.TeamName Vs @Model.M_TeamInfoMaster1.TeamName*@
+                <h2 style="text-align:center;">@Model.FirstOrDefault().M_MatchInfoMaters.M_TeamInfoMaster.TeamName Vs @Model.FirstOrDefault().M_MatchInfoMaters.M_TeamInfoMaster1.TeamName</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="Team_Menu">
+                    <table>
+                        <tr>
+                            <td><a href="#">Preview</a></td>
+                            <td><a href="#">Safe 11</a></td>
+                            <td><a href="#">Contests</a></td>
+                            <td><a href="#">Vote</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="row">
+    <div class="container">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="Team_Table">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Team : @Model.FirstOrDefault().M_MatchInfoMaters.M_TeamInfoMaster.TeamName</th>
+                            <th>Team : @Model.FirstOrDefault().M_MatchInfoMaters.M_TeamInfoMaster1.TeamName</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <table class="table table-bordered">
+
+                                    @foreach (var memberDetails in Model.Where(x=>x.M_MatchInfoMaters.M_TeamInfoMaster.TeamName == Model.FirstOrDefault().M_MatchInfoMaters.M_TeamInfoMaster.TeamName))
+                                    {
+                                    <tr>
+                                        <td>@memberDetails.PlayerPosition</td>
+                                        <td>@memberDetails.M_PlayerInfoMaster.PlayerName</td>
+                                    </tr>
+                                    }
+                                        
+                                        @*<tr>
+                                            <td>
+                                                2
+                                            </td>
+                                            <td>
+                                                <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                            </td>
+                                            <td>Name</td>
+                                            <td>
+                                                <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                3
+                                            </td>
+                                            <td>
+                                                <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                            </td>
+                                            <td>Name</td>
+                                            <td>
+                                                <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                4
+                                            </td>
+                                            <td>
+                                                <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                            </td>
+                                            <td>Name</td>
+                                            <td>
+                                                <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                5
+                                            </td>
+                                            <td>
+                                                <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                            </td>
+                                            <td>Name</td>
+                                            <td>
+                                                <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                6
+                                            </td>
+                                            <td>
+                                                <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                            </td>
+                                            <td>Name</td>
+                                            <td>
+                                                <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                7
+                                            </td>
+                                            <td>
+                                                <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                            </td>
+                                            <td>Name</td>
+                                            <td>
+                                                <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                8
+                                            </td>
+                                            <td>
+                                                <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                            </td>
+                                            <td>Name</td>
+                                            <td>
+                                                <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                9
+                                            </td>
+                                            <td>
+                                                <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                            </td>
+                                            <td>Name</td>
+                                            <td>
+                                                <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                10
+                                            </td>
+                                            <td>
+                                                <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                            </td>
+                                            <td>Name</td>
+                                            <td>
+                                                <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                11
+                                            </td>
+                                            <td>
+                                                <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                            </td>
+                                            <td>Name</td>
+                                            <td>
+                                                <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                            </td>
+                                        </tr>*@
+                                    </table>
+                            </td>
+                            <td>
+                                <table class="table table-bordered">
+                                    @foreach (var memberDetails in Model.Where(x => x.M_MatchInfoMaters.M_TeamInfoMaster1.TeamName == Model.FirstOrDefault().M_MatchInfoMaters.M_TeamInfoMaster1.TeamName))
+                                    {
+                                        <tr>
+                                            <td>@memberDetails.PlayerPosition</td>
+                                            <td>@memberDetails.M_PlayerInfoMaster.PlayerName</td>
+                                        </tr>
+                                    }
+                                    @*<tr>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                        <td>Name</td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            2
+                                        </td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                        <td>Name</td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                        <td>Name</td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            4
+                                        </td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                        <td>Name</td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            5
+                                        </td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                        <td>Name</td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            6
+                                        </td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                        <td>Name</td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            7
+                                        </td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                        <td>Name</td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            8
+                                        </td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                        <td>Name</td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            9
+                                        </td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                        <td>Name</td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            10
+                                        </td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                        <td>Name</td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            11
+                                        </td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                        <td>Name</td>
+                                        <td>
+                                            <img src="images/india_logo.png" alt="Los Angeles" style="width:50px; height:20px;" />
+                                        </td>
+                                    </tr>*@
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

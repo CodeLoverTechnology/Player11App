@@ -1,0 +1,73 @@
+﻿@model IEnumerable<P11WebAPI.P11DbModel.M_PlayerInfoMaster>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Team")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.M_PlayerTypeMaster.PlayerType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlayerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlayerSpecialization)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlayerImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.M_TeamInfoMaster.TeamName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.M_PlayerTypeMaster.PlayerType)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.PlayerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlayerSpecialization)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            <img src="data:image/png;base64,@item.PlayerImage" width="50" height="50" class="img-responsive" />
+            @*@Html.DisplayFor(modelItem => item.PlayerImage)*@
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Active)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.PlayerID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.PlayerID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.PlayerID })
+        </td>
+    </tr>
+}
+
+</table>

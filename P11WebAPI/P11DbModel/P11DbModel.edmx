@@ -1,0 +1,753 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="P11DbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="M_MatchInfoMaters">
+          <Key>
+            <PropertyRef Name="MatchID" />
+          </Key>
+          <Property Name="MatchID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MatchLocation" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Team1" Type="int" Nullable="false" />
+          <Property Name="Team2" Type="int" Nullable="false" />
+          <Property Name="MatchDate" Type="datetime" Nullable="false" />
+          <Property Name="Result" Type="nvarchar(max)" />
+          <Property Name="MatchBanner" Type="nvarchar(max)" />
+          <Property Name="FirstAmpire" Type="nvarchar(max)" />
+          <Property Name="SecondAmpire" Type="nvarchar(max)" />
+          <Property Name="TotalOverMatch" Type="nvarchar(max)" />
+          <Property Name="LiveWatchingCount" Type="int" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_MatchTopicMaster">
+          <Key>
+            <PropertyRef Name="MatchTopicID" />
+          </Key>
+          <Property Name="MatchTopicID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Topic" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_PlayerInfoMaster">
+          <Key>
+            <PropertyRef Name="PlayerID" />
+          </Key>
+          <Property Name="PlayerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TeamID" Type="int" Nullable="false" />
+          <Property Name="PlayerName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PlayerTypeID" Type="int" Nullable="false" />
+          <Property Name="PlayerSpecialization" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PlayerImage" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_PlayerTypeMaster">
+          <Key>
+            <PropertyRef Name="PlayerTypeID" />
+          </Key>
+          <Property Name="PlayerTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlayerType" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="PlayerTypeIcons" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_TeamInfoMaster">
+          <Key>
+            <PropertyRef Name="TeamID" />
+          </Key>
+          <Property Name="TeamID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TeamType" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TeamCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TeamName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TeamLocation" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="TeamLogo" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_LiveMatchUpdateInfo">
+          <Key>
+            <PropertyRef Name="MatchUpdateID" />
+          </Key>
+          <Property Name="MatchUpdateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MatchID" Type="int" Nullable="false" />
+          <Property Name="MatchTopicID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Images" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Match_PlayerMappingTable">
+          <Key>
+            <PropertyRef Name="PlayerMatchID" />
+          </Key>
+          <Property Name="PlayerMatchID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MatchID" Type="int" Nullable="false" />
+          <Property Name="PlayerID" Type="int" Nullable="false" />
+          <Property Name="PlayerPosition" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_RunningMatchInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MatchID" Type="int" Nullable="false" />
+          <Property Name="MatchDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_M_MatchInfoMaters_M_TeamInfoMaster">
+          <End Role="M_TeamInfoMaster" Type="Self.M_TeamInfoMaster" Multiplicity="1" />
+          <End Role="M_MatchInfoMaters" Type="Self.M_MatchInfoMaters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_TeamInfoMaster">
+              <PropertyRef Name="TeamID" />
+            </Principal>
+            <Dependent Role="M_MatchInfoMaters">
+              <PropertyRef Name="Team1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_MatchInfoMaters_M_TeamInfoMaster1">
+          <End Role="M_TeamInfoMaster" Type="Self.M_TeamInfoMaster" Multiplicity="1" />
+          <End Role="M_MatchInfoMaters" Type="Self.M_MatchInfoMaters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_TeamInfoMaster">
+              <PropertyRef Name="TeamID" />
+            </Principal>
+            <Dependent Role="M_MatchInfoMaters">
+              <PropertyRef Name="Team2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_PlayerInfoMaster_M_PlayerTypeMaster">
+          <End Role="M_PlayerTypeMaster" Type="Self.M_PlayerTypeMaster" Multiplicity="1" />
+          <End Role="M_PlayerInfoMaster" Type="Self.M_PlayerInfoMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_PlayerTypeMaster">
+              <PropertyRef Name="PlayerTypeID" />
+            </Principal>
+            <Dependent Role="M_PlayerInfoMaster">
+              <PropertyRef Name="PlayerTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_PlayerInfoMaster_M_TeamInfoMaster">
+          <End Role="M_TeamInfoMaster" Type="Self.M_TeamInfoMaster" Multiplicity="1" />
+          <End Role="M_PlayerInfoMaster" Type="Self.M_PlayerInfoMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_TeamInfoMaster">
+              <PropertyRef Name="TeamID" />
+            </Principal>
+            <Dependent Role="M_PlayerInfoMaster">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_LiveMatchUpdateInfo_M_MatchInfoMaters">
+          <End Role="M_MatchInfoMaters" Type="Self.M_MatchInfoMaters" Multiplicity="1" />
+          <End Role="T_LiveMatchUpdateInfo" Type="Self.T_LiveMatchUpdateInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_MatchInfoMaters">
+              <PropertyRef Name="MatchID" />
+            </Principal>
+            <Dependent Role="T_LiveMatchUpdateInfo">
+              <PropertyRef Name="MatchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_LiveMatchUpdateInfo_M_MatchTopicMaster">
+          <End Role="M_MatchTopicMaster" Type="Self.M_MatchTopicMaster" Multiplicity="1" />
+          <End Role="T_LiveMatchUpdateInfo" Type="Self.T_LiveMatchUpdateInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_MatchTopicMaster">
+              <PropertyRef Name="MatchTopicID" />
+            </Principal>
+            <Dependent Role="T_LiveMatchUpdateInfo">
+              <PropertyRef Name="MatchTopicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Match_PlayerMappingTable_M_MatchInfoMaters">
+          <End Role="M_MatchInfoMaters" Type="Self.M_MatchInfoMaters" Multiplicity="1" />
+          <End Role="T_Match_PlayerMappingTable" Type="Self.T_Match_PlayerMappingTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_MatchInfoMaters">
+              <PropertyRef Name="MatchID" />
+            </Principal>
+            <Dependent Role="T_Match_PlayerMappingTable">
+              <PropertyRef Name="MatchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Match_PlayerMappingTable_M_PlayerInfoMaster">
+          <End Role="M_PlayerInfoMaster" Type="Self.M_PlayerInfoMaster" Multiplicity="1" />
+          <End Role="T_Match_PlayerMappingTable" Type="Self.T_Match_PlayerMappingTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_PlayerInfoMaster">
+              <PropertyRef Name="PlayerID" />
+            </Principal>
+            <Dependent Role="T_Match_PlayerMappingTable">
+              <PropertyRef Name="PlayerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_RunningMatchInfo_M_MatchInfoMaters">
+          <End Role="M_MatchInfoMaters" Type="Self.M_MatchInfoMaters" Multiplicity="1" />
+          <End Role="T_RunningMatchInfo" Type="Self.T_RunningMatchInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_MatchInfoMaters">
+              <PropertyRef Name="MatchID" />
+            </Principal>
+            <Dependent Role="T_RunningMatchInfo">
+              <PropertyRef Name="MatchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="P11DbModelStoreContainer">
+          <EntitySet Name="M_MatchInfoMaters" EntityType="Self.M_MatchInfoMaters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_MatchTopicMaster" EntityType="Self.M_MatchTopicMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_PlayerInfoMaster" EntityType="Self.M_PlayerInfoMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_PlayerTypeMaster" EntityType="Self.M_PlayerTypeMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_TeamInfoMaster" EntityType="Self.M_TeamInfoMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_LiveMatchUpdateInfo" EntityType="Self.T_LiveMatchUpdateInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Match_PlayerMappingTable" EntityType="Self.T_Match_PlayerMappingTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_RunningMatchInfo" EntityType="Self.T_RunningMatchInfo" Schema="Player11" store:Type="Tables" />
+          <AssociationSet Name="FK_M_MatchInfoMaters_M_TeamInfoMaster" Association="Self.FK_M_MatchInfoMaters_M_TeamInfoMaster">
+            <End Role="M_TeamInfoMaster" EntitySet="M_TeamInfoMaster" />
+            <End Role="M_MatchInfoMaters" EntitySet="M_MatchInfoMaters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_MatchInfoMaters_M_TeamInfoMaster1" Association="Self.FK_M_MatchInfoMaters_M_TeamInfoMaster1">
+            <End Role="M_TeamInfoMaster" EntitySet="M_TeamInfoMaster" />
+            <End Role="M_MatchInfoMaters" EntitySet="M_MatchInfoMaters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_PlayerInfoMaster_M_PlayerTypeMaster" Association="Self.FK_M_PlayerInfoMaster_M_PlayerTypeMaster">
+            <End Role="M_PlayerTypeMaster" EntitySet="M_PlayerTypeMaster" />
+            <End Role="M_PlayerInfoMaster" EntitySet="M_PlayerInfoMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_PlayerInfoMaster_M_TeamInfoMaster" Association="Self.FK_M_PlayerInfoMaster_M_TeamInfoMaster">
+            <End Role="M_TeamInfoMaster" EntitySet="M_TeamInfoMaster" />
+            <End Role="M_PlayerInfoMaster" EntitySet="M_PlayerInfoMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_LiveMatchUpdateInfo_M_MatchInfoMaters" Association="Self.FK_T_LiveMatchUpdateInfo_M_MatchInfoMaters">
+            <End Role="M_MatchInfoMaters" EntitySet="M_MatchInfoMaters" />
+            <End Role="T_LiveMatchUpdateInfo" EntitySet="T_LiveMatchUpdateInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_LiveMatchUpdateInfo_M_MatchTopicMaster" Association="Self.FK_T_LiveMatchUpdateInfo_M_MatchTopicMaster">
+            <End Role="M_MatchTopicMaster" EntitySet="M_MatchTopicMaster" />
+            <End Role="T_LiveMatchUpdateInfo" EntitySet="T_LiveMatchUpdateInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Match_PlayerMappingTable_M_MatchInfoMaters" Association="Self.FK_T_Match_PlayerMappingTable_M_MatchInfoMaters">
+            <End Role="M_MatchInfoMaters" EntitySet="M_MatchInfoMaters" />
+            <End Role="T_Match_PlayerMappingTable" EntitySet="T_Match_PlayerMappingTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Match_PlayerMappingTable_M_PlayerInfoMaster" Association="Self.FK_T_Match_PlayerMappingTable_M_PlayerInfoMaster">
+            <End Role="M_PlayerInfoMaster" EntitySet="M_PlayerInfoMaster" />
+            <End Role="T_Match_PlayerMappingTable" EntitySet="T_Match_PlayerMappingTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_RunningMatchInfo_M_MatchInfoMaters" Association="Self.FK_T_RunningMatchInfo_M_MatchInfoMaters">
+            <End Role="M_MatchInfoMaters" EntitySet="M_MatchInfoMaters" />
+            <End Role="T_RunningMatchInfo" EntitySet="T_RunningMatchInfo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="P11DbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="M_MatchInfoMaters">
+          <Key>
+            <PropertyRef Name="MatchID" />
+          </Key>
+          <Property Name="MatchID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatchLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Team1" Type="Int32" Nullable="false" />
+          <Property Name="Team2" Type="Int32" Nullable="false" />
+          <Property Name="MatchDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TotalOverMatch" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LiveWatchingCount" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_TeamInfoMaster" Relationship="Self.FK_M_MatchInfoMaters_M_TeamInfoMaster" FromRole="M_MatchInfoMaters" ToRole="M_TeamInfoMaster" />
+          <NavigationProperty Name="M_TeamInfoMaster1" Relationship="Self.FK_M_MatchInfoMaters_M_TeamInfoMaster1" FromRole="M_MatchInfoMaters" ToRole="M_TeamInfoMaster" />
+          <NavigationProperty Name="T_LiveMatchUpdateInfo" Relationship="Self.FK_T_LiveMatchUpdateInfo_M_MatchInfoMaters" FromRole="M_MatchInfoMaters" ToRole="T_LiveMatchUpdateInfo" />
+          <Property Name="MatchBanner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FirstAmpire" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecondAmpire" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="T_Match_PlayerMappingTable" Relationship="P11DbModel.FK_T_Match_PlayerMappingTable_M_MatchInfoMaters" FromRole="M_MatchInfoMaters" ToRole="T_Match_PlayerMappingTable" />
+          <NavigationProperty Name="T_RunningMatchInfo" Relationship="P11DbModel.FK_T_RunningMatchInfo_M_MatchInfoMaters" FromRole="M_MatchInfoMaters" ToRole="T_RunningMatchInfo" />
+        </EntityType>
+        <EntityType Name="M_MatchTopicMaster">
+          <Key>
+            <PropertyRef Name="MatchTopicID" />
+          </Key>
+          <Property Name="MatchTopicID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Topic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="T_LiveMatchUpdateInfo" Relationship="Self.FK_T_LiveMatchUpdateInfo_M_MatchTopicMaster" FromRole="M_MatchTopicMaster" ToRole="T_LiveMatchUpdateInfo" />
+        </EntityType>
+        <EntityType Name="M_PlayerInfoMaster">
+          <Key>
+            <PropertyRef Name="PlayerID" />
+          </Key>
+          <Property Name="PlayerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeamID" Type="Int32" Nullable="false" />
+          <Property Name="PlayerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PlayerTypeID" Type="Int32" Nullable="false" />
+          <Property Name="PlayerSpecialization" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PlayerImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_PlayerTypeMaster" Relationship="Self.FK_M_PlayerInfoMaster_M_PlayerTypeMaster" FromRole="M_PlayerInfoMaster" ToRole="M_PlayerTypeMaster" />
+          <NavigationProperty Name="M_TeamInfoMaster" Relationship="Self.FK_M_PlayerInfoMaster_M_TeamInfoMaster" FromRole="M_PlayerInfoMaster" ToRole="M_TeamInfoMaster" />
+          <NavigationProperty Name="T_Match_PlayerMappingTable" Relationship="P11DbModel.FK_T_Match_PlayerMappingTable_M_PlayerInfoMaster" FromRole="M_PlayerInfoMaster" ToRole="T_Match_PlayerMappingTable" />
+        </EntityType>
+        <EntityType Name="M_PlayerTypeMaster">
+          <Key>
+            <PropertyRef Name="PlayerTypeID" />
+          </Key>
+          <Property Name="PlayerTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlayerType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PlayerTypeIcons" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_PlayerInfoMaster" Relationship="Self.FK_M_PlayerInfoMaster_M_PlayerTypeMaster" FromRole="M_PlayerTypeMaster" ToRole="M_PlayerInfoMaster" />
+        </EntityType>
+        <EntityType Name="M_TeamInfoMaster">
+          <Key>
+            <PropertyRef Name="TeamID" />
+          </Key>
+          <Property Name="TeamID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeamType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TeamCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TeamName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TeamLocation" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TeamLogo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_MatchInfoMaters" Relationship="Self.FK_M_MatchInfoMaters_M_TeamInfoMaster" FromRole="M_TeamInfoMaster" ToRole="M_MatchInfoMaters" />
+          <NavigationProperty Name="M_MatchInfoMaters1" Relationship="Self.FK_M_MatchInfoMaters_M_TeamInfoMaster1" FromRole="M_TeamInfoMaster" ToRole="M_MatchInfoMaters" />
+          <NavigationProperty Name="M_PlayerInfoMaster" Relationship="Self.FK_M_PlayerInfoMaster_M_TeamInfoMaster" FromRole="M_TeamInfoMaster" ToRole="M_PlayerInfoMaster" />
+        </EntityType>
+        <EntityType Name="T_LiveMatchUpdateInfo">
+          <Key>
+            <PropertyRef Name="MatchUpdateID" />
+          </Key>
+          <Property Name="MatchUpdateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatchID" Type="Int32" Nullable="false" />
+          <Property Name="MatchTopicID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Images" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_MatchInfoMaters" Relationship="Self.FK_T_LiveMatchUpdateInfo_M_MatchInfoMaters" FromRole="T_LiveMatchUpdateInfo" ToRole="M_MatchInfoMaters" />
+          <NavigationProperty Name="M_MatchTopicMaster" Relationship="Self.FK_T_LiveMatchUpdateInfo_M_MatchTopicMaster" FromRole="T_LiveMatchUpdateInfo" ToRole="M_MatchTopicMaster" />
+        </EntityType>
+        <Association Name="FK_M_MatchInfoMaters_M_TeamInfoMaster">
+          <End Role="M_TeamInfoMaster" Type="Self.M_TeamInfoMaster" Multiplicity="1" />
+          <End Role="M_MatchInfoMaters" Type="Self.M_MatchInfoMaters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_TeamInfoMaster">
+              <PropertyRef Name="TeamID" />
+            </Principal>
+            <Dependent Role="M_MatchInfoMaters">
+              <PropertyRef Name="Team1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_MatchInfoMaters_M_TeamInfoMaster1">
+          <End Role="M_TeamInfoMaster" Type="Self.M_TeamInfoMaster" Multiplicity="1" />
+          <End Role="M_MatchInfoMaters" Type="Self.M_MatchInfoMaters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_TeamInfoMaster">
+              <PropertyRef Name="TeamID" />
+            </Principal>
+            <Dependent Role="M_MatchInfoMaters">
+              <PropertyRef Name="Team2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_LiveMatchUpdateInfo_M_MatchInfoMaters">
+          <End Role="M_MatchInfoMaters" Type="Self.M_MatchInfoMaters" Multiplicity="1" />
+          <End Role="T_LiveMatchUpdateInfo" Type="Self.T_LiveMatchUpdateInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_MatchInfoMaters">
+              <PropertyRef Name="MatchID" />
+            </Principal>
+            <Dependent Role="T_LiveMatchUpdateInfo">
+              <PropertyRef Name="MatchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_LiveMatchUpdateInfo_M_MatchTopicMaster">
+          <End Role="M_MatchTopicMaster" Type="Self.M_MatchTopicMaster" Multiplicity="1" />
+          <End Role="T_LiveMatchUpdateInfo" Type="Self.T_LiveMatchUpdateInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_MatchTopicMaster">
+              <PropertyRef Name="MatchTopicID" />
+            </Principal>
+            <Dependent Role="T_LiveMatchUpdateInfo">
+              <PropertyRef Name="MatchTopicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_PlayerInfoMaster_M_PlayerTypeMaster">
+          <End Role="M_PlayerTypeMaster" Type="Self.M_PlayerTypeMaster" Multiplicity="1" />
+          <End Role="M_PlayerInfoMaster" Type="Self.M_PlayerInfoMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_PlayerTypeMaster">
+              <PropertyRef Name="PlayerTypeID" />
+            </Principal>
+            <Dependent Role="M_PlayerInfoMaster">
+              <PropertyRef Name="PlayerTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_PlayerInfoMaster_M_TeamInfoMaster">
+          <End Role="M_TeamInfoMaster" Type="Self.M_TeamInfoMaster" Multiplicity="1" />
+          <End Role="M_PlayerInfoMaster" Type="Self.M_PlayerInfoMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_TeamInfoMaster">
+              <PropertyRef Name="TeamID" />
+            </Principal>
+            <Dependent Role="M_PlayerInfoMaster">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="P11DbEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="M_MatchInfoMaters" EntityType="Self.M_MatchInfoMaters" />
+          <EntitySet Name="M_MatchTopicMaster" EntityType="Self.M_MatchTopicMaster" />
+          <EntitySet Name="M_PlayerInfoMaster" EntityType="Self.M_PlayerInfoMaster" />
+          <EntitySet Name="M_PlayerTypeMaster" EntityType="Self.M_PlayerTypeMaster" />
+          <EntitySet Name="M_TeamInfoMaster" EntityType="Self.M_TeamInfoMaster" />
+          <EntitySet Name="T_LiveMatchUpdateInfo" EntityType="Self.T_LiveMatchUpdateInfo" />
+          <AssociationSet Name="FK_M_MatchInfoMaters_M_TeamInfoMaster" Association="Self.FK_M_MatchInfoMaters_M_TeamInfoMaster">
+            <End Role="M_TeamInfoMaster" EntitySet="M_TeamInfoMaster" />
+            <End Role="M_MatchInfoMaters" EntitySet="M_MatchInfoMaters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_MatchInfoMaters_M_TeamInfoMaster1" Association="Self.FK_M_MatchInfoMaters_M_TeamInfoMaster1">
+            <End Role="M_TeamInfoMaster" EntitySet="M_TeamInfoMaster" />
+            <End Role="M_MatchInfoMaters" EntitySet="M_MatchInfoMaters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_LiveMatchUpdateInfo_M_MatchInfoMaters" Association="Self.FK_T_LiveMatchUpdateInfo_M_MatchInfoMaters">
+            <End Role="M_MatchInfoMaters" EntitySet="M_MatchInfoMaters" />
+            <End Role="T_LiveMatchUpdateInfo" EntitySet="T_LiveMatchUpdateInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_LiveMatchUpdateInfo_M_MatchTopicMaster" Association="Self.FK_T_LiveMatchUpdateInfo_M_MatchTopicMaster">
+            <End Role="M_MatchTopicMaster" EntitySet="M_MatchTopicMaster" />
+            <End Role="T_LiveMatchUpdateInfo" EntitySet="T_LiveMatchUpdateInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_PlayerInfoMaster_M_PlayerTypeMaster" Association="Self.FK_M_PlayerInfoMaster_M_PlayerTypeMaster">
+            <End Role="M_PlayerTypeMaster" EntitySet="M_PlayerTypeMaster" />
+            <End Role="M_PlayerInfoMaster" EntitySet="M_PlayerInfoMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_PlayerInfoMaster_M_TeamInfoMaster" Association="Self.FK_M_PlayerInfoMaster_M_TeamInfoMaster">
+            <End Role="M_TeamInfoMaster" EntitySet="M_TeamInfoMaster" />
+            <End Role="M_PlayerInfoMaster" EntitySet="M_PlayerInfoMaster" />
+          </AssociationSet>
+          <EntitySet Name="T_Match_PlayerMappingTable" EntityType="P11DbModel.T_Match_PlayerMappingTable" />
+          <AssociationSet Name="FK_T_Match_PlayerMappingTable_M_MatchInfoMaters" Association="P11DbModel.FK_T_Match_PlayerMappingTable_M_MatchInfoMaters">
+            <End Role="M_MatchInfoMaters" EntitySet="M_MatchInfoMaters" />
+            <End Role="T_Match_PlayerMappingTable" EntitySet="T_Match_PlayerMappingTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_Match_PlayerMappingTable_M_PlayerInfoMaster" Association="P11DbModel.FK_T_Match_PlayerMappingTable_M_PlayerInfoMaster">
+            <End Role="M_PlayerInfoMaster" EntitySet="M_PlayerInfoMaster" />
+            <End Role="T_Match_PlayerMappingTable" EntitySet="T_Match_PlayerMappingTable" />
+          </AssociationSet>
+          <EntitySet Name="T_RunningMatchInfo" EntityType="P11DbModel.T_RunningMatchInfo" />
+          <AssociationSet Name="FK_T_RunningMatchInfo_M_MatchInfoMaters" Association="P11DbModel.FK_T_RunningMatchInfo_M_MatchInfoMaters">
+            <End Role="M_MatchInfoMaters" EntitySet="M_MatchInfoMaters" />
+            <End Role="T_RunningMatchInfo" EntitySet="T_RunningMatchInfo" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="T_Match_PlayerMappingTable">
+          <Key>
+            <PropertyRef Name="PlayerMatchID" />
+          </Key>
+          <Property Name="PlayerMatchID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatchID" Type="Int32" Nullable="false" />
+          <Property Name="PlayerID" Type="Int32" Nullable="false" />
+          <Property Name="PlayerPosition" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_MatchInfoMaters" Relationship="P11DbModel.FK_T_Match_PlayerMappingTable_M_MatchInfoMaters" FromRole="T_Match_PlayerMappingTable" ToRole="M_MatchInfoMaters" />
+          <NavigationProperty Name="M_PlayerInfoMaster" Relationship="P11DbModel.FK_T_Match_PlayerMappingTable_M_PlayerInfoMaster" FromRole="T_Match_PlayerMappingTable" ToRole="M_PlayerInfoMaster" />
+        </EntityType>
+        <Association Name="FK_T_Match_PlayerMappingTable_M_MatchInfoMaters">
+          <End Type="P11DbModel.M_MatchInfoMaters" Role="M_MatchInfoMaters" Multiplicity="1" />
+          <End Type="P11DbModel.T_Match_PlayerMappingTable" Role="T_Match_PlayerMappingTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_MatchInfoMaters">
+              <PropertyRef Name="MatchID" />
+            </Principal>
+            <Dependent Role="T_Match_PlayerMappingTable">
+              <PropertyRef Name="MatchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_Match_PlayerMappingTable_M_PlayerInfoMaster">
+          <End Type="P11DbModel.M_PlayerInfoMaster" Role="M_PlayerInfoMaster" Multiplicity="1" />
+          <End Type="P11DbModel.T_Match_PlayerMappingTable" Role="T_Match_PlayerMappingTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_PlayerInfoMaster">
+              <PropertyRef Name="PlayerID" />
+            </Principal>
+            <Dependent Role="T_Match_PlayerMappingTable">
+              <PropertyRef Name="PlayerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="T_RunningMatchInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatchID" Type="Int32" Nullable="false" />
+          <Property Name="MatchDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_MatchInfoMaters" Relationship="P11DbModel.FK_T_RunningMatchInfo_M_MatchInfoMaters" FromRole="T_RunningMatchInfo" ToRole="M_MatchInfoMaters" />
+        </EntityType>
+        <Association Name="FK_T_RunningMatchInfo_M_MatchInfoMaters">
+          <End Type="P11DbModel.M_MatchInfoMaters" Role="M_MatchInfoMaters" Multiplicity="1" />
+          <End Type="P11DbModel.T_RunningMatchInfo" Role="T_RunningMatchInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_MatchInfoMaters">
+              <PropertyRef Name="MatchID" />
+            </Principal>
+            <Dependent Role="T_RunningMatchInfo">
+              <PropertyRef Name="MatchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="P11DbModelStoreContainer" CdmEntityContainer="P11DbEntities1">
+          <EntitySetMapping Name="M_MatchInfoMaters">
+            <EntityTypeMapping TypeName="P11DbModel.M_MatchInfoMaters">
+              <MappingFragment StoreEntitySet="M_MatchInfoMaters">
+                <ScalarProperty Name="SecondAmpire" ColumnName="SecondAmpire" />
+                <ScalarProperty Name="FirstAmpire" ColumnName="FirstAmpire" />
+                <ScalarProperty Name="MatchBanner" ColumnName="MatchBanner" />
+                <ScalarProperty Name="MatchID" ColumnName="MatchID" />
+                <ScalarProperty Name="MatchLocation" ColumnName="MatchLocation" />
+                <ScalarProperty Name="Team1" ColumnName="Team1" />
+                <ScalarProperty Name="Team2" ColumnName="Team2" />
+                <ScalarProperty Name="MatchDate" ColumnName="MatchDate" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="TotalOverMatch" ColumnName="TotalOverMatch" />
+                <ScalarProperty Name="LiveWatchingCount" ColumnName="LiveWatchingCount" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_MatchTopicMaster">
+            <EntityTypeMapping TypeName="P11DbModel.M_MatchTopicMaster">
+              <MappingFragment StoreEntitySet="M_MatchTopicMaster">
+                <ScalarProperty Name="MatchTopicID" ColumnName="MatchTopicID" />
+                <ScalarProperty Name="Topic" ColumnName="Topic" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_PlayerInfoMaster">
+            <EntityTypeMapping TypeName="P11DbModel.M_PlayerInfoMaster">
+              <MappingFragment StoreEntitySet="M_PlayerInfoMaster">
+                <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="PlayerName" ColumnName="PlayerName" />
+                <ScalarProperty Name="PlayerTypeID" ColumnName="PlayerTypeID" />
+                <ScalarProperty Name="PlayerSpecialization" ColumnName="PlayerSpecialization" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PlayerImage" ColumnName="PlayerImage" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_PlayerTypeMaster">
+            <EntityTypeMapping TypeName="P11DbModel.M_PlayerTypeMaster">
+              <MappingFragment StoreEntitySet="M_PlayerTypeMaster">
+                <ScalarProperty Name="PlayerTypeID" ColumnName="PlayerTypeID" />
+                <ScalarProperty Name="PlayerType" ColumnName="PlayerType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PlayerTypeIcons" ColumnName="PlayerTypeIcons" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_TeamInfoMaster">
+            <EntityTypeMapping TypeName="P11DbModel.M_TeamInfoMaster">
+              <MappingFragment StoreEntitySet="M_TeamInfoMaster">
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="TeamType" ColumnName="TeamType" />
+                <ScalarProperty Name="TeamCode" ColumnName="TeamCode" />
+                <ScalarProperty Name="TeamName" ColumnName="TeamName" />
+                <ScalarProperty Name="TeamLocation" ColumnName="TeamLocation" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="TeamLogo" ColumnName="TeamLogo" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_LiveMatchUpdateInfo">
+            <EntityTypeMapping TypeName="P11DbModel.T_LiveMatchUpdateInfo">
+              <MappingFragment StoreEntitySet="T_LiveMatchUpdateInfo">
+                <ScalarProperty Name="MatchUpdateID" ColumnName="MatchUpdateID" />
+                <ScalarProperty Name="MatchID" ColumnName="MatchID" />
+                <ScalarProperty Name="MatchTopicID" ColumnName="MatchTopicID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Images" ColumnName="Images" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Match_PlayerMappingTable">
+            <EntityTypeMapping TypeName="P11DbModel.T_Match_PlayerMappingTable">
+              <MappingFragment StoreEntitySet="T_Match_PlayerMappingTable">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="PlayerPosition" ColumnName="PlayerPosition" />
+                <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
+                <ScalarProperty Name="MatchID" ColumnName="MatchID" />
+                <ScalarProperty Name="PlayerMatchID" ColumnName="PlayerMatchID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_RunningMatchInfo">
+            <EntityTypeMapping TypeName="P11DbModel.T_RunningMatchInfo">
+              <MappingFragment StoreEntitySet="T_RunningMatchInfo">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="MatchDescription" ColumnName="MatchDescription" />
+                <ScalarProperty Name="MatchID" ColumnName="MatchID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
