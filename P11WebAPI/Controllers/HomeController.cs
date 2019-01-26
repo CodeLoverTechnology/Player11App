@@ -24,7 +24,7 @@ namespace P11WebAPI.Controllers
 
         public async Task<ActionResult> MatchInfo(int MatchID)
         {
-            if (!string.IsNullOrEmpty(MatchID.ToString()))
+            if (string.IsNullOrEmpty(MatchID.ToString()))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }

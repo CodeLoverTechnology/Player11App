@@ -28,7 +28,7 @@ namespace P11WebAPI.Controllers
         //[ResponseType(typeof(T_RunningMatchInfo))]
         public HttpResponseMessage GetT_RunningMatchInfo(int id)
         {
-            T_RunningMatchInfo t_RunningMatchInfo = db.T_RunningMatchInfo.Where(x=>x.ID==id).FirstOrDefault();
+            T_RunningMatchInfo t_RunningMatchInfo = db.T_RunningMatchInfo.Where(x=>x.MatchID==id).FirstOrDefault();
             if(t_RunningMatchInfo==null)
             {
                 t_RunningMatchInfo = new T_RunningMatchInfo();

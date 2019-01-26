@@ -3,46 +3,7 @@
 
 <header>
     <div class="row">
-        @*<div class="container">
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                <div class="w3-teal">
-                    <button class="w3-button w3-teal w3-xlarge w3-left" onclick="openLeftMenu()">&#9776;</button>
-                </div>
-                <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="leftMenu">
-                    <button onclick="closeLeftMenu()" class="w3-bar-item w3-button w3-large CloseMenu">&times;</button>
-                    <div class="Logo_Head">
-                        <div class="logo">
-                            <img src="~/images/Player11_Logo.jpeg" />
-                        </div>
-                        <h3>Player 11</h3>
-                    </div>
-                    <div class="navbar navbar-inverse">
-                        <div class="navbar-collapse">
-                            <ul class="nav navbar-nav">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="#">Tips</a></li>
-                                <li><a href="#">FAQ</a></li>
-                                <li><a href="#">Send Leagal Code</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Share</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <script>
-                    function openLeftMenu() {
-                        document.getElementById("leftMenu").style.display = "block";
-                    }
-                    function closeLeftMenu() {
-                        document.getElementById("leftMenu").style.display = "none";
-                    }
-                </script>
-            </div>
-            <div class="col-md-8 col-sm-8 col-xs-8">
-                <h2>Player 11</h2>
-            </div>
-        </div>*@
-    </div>
+       </div>
 </header>
 
 <div class="slider">
@@ -79,31 +40,7 @@
                         </div>
                     </div>
                 }
-                @*<div class="item">
-                <img src="~/images/TeamMatch/MI-vs-SRH-Match-23-LIVE-BLOG.jpg" alt="New York" style="width:100%;" />
-                <div class="carousel-caption">
-                    <h3>New York</h3>
-                    <p>We love the Big Apple!</p>
-                </div>
-            </div>
-
-            <div class="item">
-                <img src="~/images/TeamMatch/RCB-vs-MI1.jpg" alt="New York" style="width:100%;" />
-                <div class="carousel-caption">
-                    <h3>New York</h3>
-                    <p>We love the Big Apple!</p>
-                </div>
-            </div>
-
-            <div class="item">
-                <img src="~/images/TeamMatch/RR-vs-RCB-Match-22-LIVE-BLOG.jpg" alt="New York" style="width:100%;" />
-                <div class="carousel-caption">
-                    <h3>New York</h3>
-                    <p>We love the Big Apple!</p>
-                </div>
-            </div>*@
-
-            </div>
+             </div>
 
         <!-- Left and right controls -->
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -129,7 +66,7 @@
         @foreach (var item in Model)
         {
             <div class="container TeamMatch">
-                <a href="~/Home/MatchInfo?MatchID=@item.MatchID">
+                <a href="~/RunningMatchInfo/Details?id=@item.MatchID">
                     <div class="col-md-4 col-sm-4 col-xs-4">
                         <div class="Logo_Cont">
                             <div class="logo">
@@ -156,32 +93,5 @@
                 </a>
             </div>
         }
-            @*<div class="container TeamMatch">
-                <a href="~/Home/MatchInfo">
-                    <div class="col-md-4 col-sm-4 col-xs-4">
-                        <div class="Logo_Cont">
-                            <div class="logo">
-                                <img src="~/images/TeamLogo/Australia.png" />
-                            </div>
-                            <h3>Name</h3>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-4">
-                        <div class="Vs_Cont">
-                            <h1>VS</h1>
-                            <h3>04/08/2018</h3>
-                            <h3>Location</h3>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-4">
-                        <div class="Logo_Cont">
-                            <div class="logo">
-                                <img src="~/images/TeamLogo/CSK.jpg" india_logo.png:1 />
-                            </div>
-                            <h3>Name</h3>
-                        </div>
-                    </div>
-                </a>
-            </div>*@
-        </div>
+          </div>
 </div>

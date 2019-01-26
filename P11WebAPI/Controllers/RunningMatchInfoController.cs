@@ -29,7 +29,7 @@ namespace P11WebAPI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            T_RunningMatchInfo t_RunningMatchInfo = await db.T_RunningMatchInfo.FindAsync(id);
+            T_RunningMatchInfo t_RunningMatchInfo = await db.T_RunningMatchInfo.Where(x=>x.MatchID==id).FirstOrDefaultAsync();
             if (t_RunningMatchInfo == null)
             {
                 return HttpNotFound();
